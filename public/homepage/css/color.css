@@ -19,7 +19,9 @@ a:hover {
 }  
 	
 .loading #loadingoverlay {
-	background: #98cd60;
+		background: #20bab9;  /* fallback for old browsers */
+		background: -webkit-linear-gradient(to right, #20bab9, #78d6b5);  /* Chrome 10-25, Safari 5.1-6 */
+		background: linear-gradient(to right, #20bab9, #78d6b5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 #loadingoverlay h2 { 
@@ -62,7 +64,10 @@ a.button-light span {
 
 .form-row input.btn {
 	text-transform: uppercase;
-	background: #98cd60;
+	
+		background: #20bab9;  /* fallback for old browsers */
+		background: -webkit-linear-gradient(to right, #20bab9, #78d6b5);  /* Chrome 10-25, Safari 5.1-6 */
+		background: linear-gradient(to right, #20bab9, #78d6b5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 	color:#333; 	
 }
 
@@ -85,7 +90,10 @@ a.button-light span {
 }	
 
 .hero .form-box .top .spacer {
-	background: #98cd60;
+	
+		background: #20bab9;  /* fallback for old browsers */
+		background: -webkit-linear-gradient(to right, #20bab9, #78d6b5);  /* Chrome 10-25, Safari 5.1-6 */
+		background: linear-gradient(to right, #20bab9, #78d6b5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .hero .button {
@@ -106,17 +114,26 @@ a.button-light span {
 }
 
 .price .option span.spacer {
-	background: #98cd60;
+	
+		background: #20bab9;  /* fallback for old browsers */
+		background: -webkit-linear-gradient(to right, #20bab9, #78d6b5);  /* Chrome 10-25, Safari 5.1-6 */
+		background: linear-gradient(to right, #20bab9, #78d6b5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }			
 
 .form-row input.btn { 
-	background: #98cd60; 
+	
+		background: #20bab9;  /* fallback for old browsers */
+		background: -webkit-linear-gradient(to right, #20bab9, #78d6b5);  /* Chrome 10-25, Safari 5.1-6 */
+		background: linear-gradient(to right, #20bab9, #78d6b5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ 
 	color:#fff; 	
 }
 
 .form-row input.btn:hover, 
 .form-row input.btn:focus {
-	background: #98cd60; 
+	
+		background: #20bab9;  /* fallback for old browsers */
+		background: -webkit-linear-gradient(to right, #20bab9, #78d6b5);  /* Chrome 10-25, Safari 5.1-6 */
+		background: linear-gradient(to right, #20bab9, #78d6b5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ 
 	color:#fff; 
 }	
 
