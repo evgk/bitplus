@@ -1,0 +1,44 @@
+@(loginForm: Form[Option[DbUser]])
+@implicitField = @{ FieldConstructor(bareinput.f) }
+@import helper._
+@user.asset.top()
+    <title>Login - BitPlus</title>
+@user.asset.cssandmeta()
+    
+  </head>
+  <body>
+          <div class="span12">
+          <div class="signin">
+            <h1 class="center-align-text"><a href=""><img alt="" oncontextmenu="return false" src="/assets/user/img/login-logo.png" /></a></h1>
+            @form(action = routes.Application.authenticate, 'id -> "form-login", 'method -> "POST",  'class -> "signin-wrapper" ) {
+               @if(loginForm.hasGlobalErrors) {
+               <ul>
+                   @for(err <- loginForm.globalErrors){
+                       <li>@err.message</li>
+                   }
+               </ul>
+               } 	            
+              <div class="content">  
+               @helper.input(loginForm("email")) { (id, name, value, args) =>
+                   <input type="text" name="@name" id="@name" @toHtmlArgs(args) class="input input-block-level" placeholder="Email">
+               }	    
+               @helper.input(loginForm("password")) { (id, name, value, args) =>
+                   <input type="password" name="@name" id="@name" @toHtmlArgs(args) class="input input-block-level" placeholder="Password">
+               }	                                           
+             </div>
+              <div class="actions">
+                <input class="btn btn-success pull-right" type="submit" value="Login">
+                <span class="checkbox-wrapper">
+                  <a href="forgot" class="pull-left">Forgot Password?</a>
+                </span>
+                <div class="clearfix"></div>
+              </div>
+            }
+            <p class="text-success center-align-text">&copy; 2017 BitPlus.</p>
+          </div>
+          </div>
+
+@user.asset.js(None)
+    
+  </body>
+</html>

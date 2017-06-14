@@ -1,0 +1,53 @@
+@(loggedIn: Option[DbUser])
+@import play.api.Play.current
+    <script src="/assets/user/js/jquery.min.js"></script>
+    <script src="/assets/user/js/jquery-ui-1.8.23.custom.min.js"></script>
+    <script src="/assets/user/js/bootstrap.js"></script>
+    <script src="/assets/user/js/bootstrap-editable.min.js"></script>
+    <script src="/assets/user/js/custom.js"></script>
+    <script src="/assets/user/js/custom-forms.js"></script>
+    <script src="/assets/user/js/fullcalendar.js"></script>
+    <script src="/assets/user/js/tiny-scrollbar.js"></script>
+    <script src="/assets/user/js/wysiwyg/bootstrap-wysihtml5.js"></script>
+    <script src="/assets/user/js/morris/morris.js"></script>
+    <script src="/assets/user/js/morris/raphael-min.js"></script>
+    <!--  
+    <script src="/assets/user/js/flot/jquery.flot.js"></script>
+    <script src="/assets/user/js/flot/jquery.flot.resize.min.js"></script>
+    -->
+    <script src="/assets/user/js/custom-tables.js"></script>
+    <script src="/assets/user/js/custom-index.js"></script>
+    <script src="/assets/user/js/jquery.dataTables.js"></script>
+    <script src="/assets/user/js/jquery.sparkline.js"></script>
+    <script type="text/javascript" src="/assets/user/js/date-picker/date.js"></script>
+    <script type="text/javascript" src="/assets/user/js/date-picker/daterangepicker.js"></script>
+    <script type="text/javascript" src="/assets/user/js/bootstrap-timepicker.js"></script>
+    <script type="text/javascript">
+    @loggedIn.map { dbUser => 
+	    if ("WebSocket" in window)
+	    {
+		     // Let us open a web socket
+		     var ws = new WebSocket("ws://@current.configuration.getString("base_host")/websocket");
+		     ws.onopen = function()
+		     {
+		        // Web Socket is connected, send data using send()
+		        ws.send("Message to send");
+		     };
+		     ws.onmessage = function (evt) 
+		     { 
+		        var received_msg = evt.data;
+		        var data = JSON.parse(received_msg);
+		        if ( data.status == "paid") {
+		        	window.location = "/dashboard/done?transactionId=" + data.transaction_id;
+		        }
+		        if ( data.status == "processed") {
+		        	window.location = "/dashboard/invoicepaid?transactionId=" + data.transaction_id;
+		        }
+		     };
+		     ws.onclose = function()
+		     { 
+		        // websocket is closed.
+		     };
+	    }
+    }
+</script>

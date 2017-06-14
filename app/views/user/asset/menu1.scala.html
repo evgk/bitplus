@@ -1,0 +1,41 @@
+@(page: String, loggedIn: DbUser )
+        <ul>
+          <li class="@if(page == "send"){
+              active;
+          }?>">
+            <span class="current-arrow"></span>
+            <a href="/dashboard/send">
+              <div class="icon">
+                <span class="fs1" aria-hidden="true" data-icon="&#xe067;"></span>
+              </div>
+              Send Money
+            </a>
+          </li>
+          <li class="@if(page == "transactions"){ active }?>">
+            <a href="/dashboard/transactions">
+              <div class="icon">
+                <span class="fs1" aria-hidden="true" data-icon="&#xe047;"></span>
+              </div>
+              Transactions
+            </a>
+          </li>
+          @{loggedIn.role match { case Role.Administrator =>
+          <li class="">
+            <a href="/dashboard/verification">
+              <div class="icon">
+                <span class="fs1" aria-hidden="true" data-icon="&#xe0fe;"></span>
+              </div>
+              Verification
+            </a>
+          </li>
+              case _ => 
+          }}
+          <li class="@if( page == "account"){ active }?>">
+            <a href="/dashboard/account">
+              <div class="icon">
+                <span class="fs1" aria-hidden="true" data-icon="&#xe08e;"></span>
+              </div>
+              Settings
+            </a>
+          </li>          
+        </ul>

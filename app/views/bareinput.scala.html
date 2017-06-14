@@ -1,0 +1,4 @@
+@* bareinput Template File *@
+@(elements: helper.FieldElements)
+@elements.input  
+<span class="errors">@elements.errors.mkString(", ")</span>  

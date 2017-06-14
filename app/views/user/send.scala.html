@@ -1,0 +1,154 @@
+@(sendForm: Form[DbTransaction], loggedIn: DbUser )
+@implicitField = @{ FieldConstructor(bareinput.f) }
+@import helper._
+@import play.api.Play
+@user.asset.top()
+
+    <title>Send Money - BitPlus</title>
+@user.asset.cssandmeta()
+
+  </head>
+  <body>
+    <header>
+@user.asset.header()
+
+    </header>
+
+    <div class="container-fluid">
+      <div id="mainnav" class="hidden-phone hidden-tablet">
+      @user.asset.menu1("send", loggedIn)
+
+      </div>
+      
+      <div class="dashboard-wrapper">
+        <div class="main-container">
+          <div class="navbar hidden-desktop">
+            <div class="navbar-inner">
+              <div class="container">
+                <a data-target=".navbar-responsive-collapse" data-toggle="collapse" class="btn btn-navbar">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </a>
+                <div class="nav-collapse collapse navbar-responsive-collapse">
+                    @user.asset.menu2()
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row-fluid">
+            <div class="span12">
+              <ul class="breadcrumb-beauty">
+                <li>
+                  <a href=""><span class="fs1" aria-hidden="true" data-icon="&#xe067;"></span> Send Money</a>
+                </li>
+                <li>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <br />
+
+          <div class="row-fluid">
+            <div class="span12">
+              <div class="widget">                
+                <div class="widget-body">
+                  <h3>Amount Details:</h3>
+					@form(action = routes.Dashboard.sendPost, 'id -> "form-send", 'class-> "form-horizontal no-margin", 'method -> "POST" ) {
+	                @if(sendForm.hasGlobalErrors) {
+	                <ul>
+	                    @for(err <- sendForm.globalErrors){
+	                        <li>@err.message</li>
+	                    }
+	                </ul>
+	                } 		                  
+                    <div class="span6 control-group">
+                      <label class="control-label" for="sendamount">
+                        You want to send
+                      </label>
+                      <div class="controls">
+                        <div class="input-prepend">
+                    <span class="add-on">BTC</span>
+	                @helper.input(sendForm("amount")) { (id, name, value, args) =>
+	                    <input type="text" name="@name" id="@name" @toHtmlArgs(args) class="input input-block-level" placeholder="Amount">
+	                }	      
+	                <input type="hidden" id="rate_used" value="@DbTransaction.getRate()">              
+                    </div>
+                    </div>
+                    </div>
+
+                    <div class="span6 control-group">
+                      <label class="control-label" for="recipientamount">
+                         Recipient receives
+                      </label>
+                      <div class="controls">
+                        <div class="input-prepend">
+                    <span class="add-on">$</span>
+                        <input id="recipientamount" class="input-xlarge" type="text">
+                    </div>
+                    </div><br /><br />
+                    </div>
+
+                  <h3>Recipient Details:</h3>
+
+<br />
+                      <div class="span10 control-group">
+                      <label class="control-label" for="fname">
+                        Name
+                      </label>
+                      <div class="controls controls-row">
+	                    @helper.input(sendForm("firstname")) { (id, name, value, args) =>
+	                        <input type="text" name="@name" id="@name" @toHtmlArgs(args) class="span4" placeholder="First Name">
+	                    }        
+	                    @helper.input(sendForm("middlename")) { (id, name, value, args) =>
+	                        <input type="text" name="@name" id="@name" @toHtmlArgs(args) class="span4" placeholder="Middle Name">
+	                    }       
+	                    @helper.input(sendForm("lastname")) { (id, name, value, args) =>
+	                        <input type="text" name="@name" id="@name" @toHtmlArgs(args) class="span4" placeholder="Last Name">
+	                    }              	  	                           	                                  
+                      </div><br />
+                    </div><br /><br />
+
+                    <div class="span6 control-group">
+                      <label class="control-label" for="mtn">
+                       MTN Number
+                      </label>
+                      <div class="controls">
+                        <div class="input-prepend">
+                    <span class="add-on">+252</span>
+	                    @helper.input(sendForm("mnt_number")) { (id, name, value, args) =>
+	                        <input type="text" name="@name" id="@name" @toHtmlArgs(args) class="input-large" placeholder="Mnt Number">
+	                    } 
+                    </div>
+                    </div><br /><br />
+                   <button type="submit" class="btn btn-success pull-left">Send Money</button>
+                    </div><br />
+                  }
+                  <br /><br /><br /><br /><br /><br /><br />
+                </div>
+              </div>
+            </div>
+
+            
+
+        </div>
+      </div>
+    </div>
+@user.asset.footer()
+@user.asset.js(Some(loggedIn))
+<script language="javascript">
+jQuery(document).ready ( function() {
+    jQuery('#amount').on("input", function() {
+        jQuery('#recipientamount').val ( (jQuery('#amount').val() * jQuery('#rate_used').val() * ( 1 - @Play.current.configuration.getString("commission") ) ).toFixed(2) );
+    });
+    
+    jQuery('#recipientamount').on("input", function() {
+        jQuery('#amount').val ( (jQuery('#recipientamount').val() / (jQuery('#rate_used').val() * ( 1 - @Play.current.configuration.getString("commission")) ) ).toFixed(8) );
+    });
+});     
+</script>
+  </body>
+</html>

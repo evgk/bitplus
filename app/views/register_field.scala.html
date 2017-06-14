@@ -1,0 +1,16 @@
+@(elements: helper.FieldElements)
+
+<div class="form-row">	
+	<div class="@elements.args.get('containerclass1)">
+		<div class="inner align-right">
+			
+		</div>
+	</div>
+	<div class="@elements.args.get('containerclass2)">
+		<div class="input-wrapper">
+			@elements.input  
+			<span class="errors">@elements.errors.mkString(", ")</span>  
+		</div>
+	</div>
+	<div class="clearfix"></div>
+</div>  

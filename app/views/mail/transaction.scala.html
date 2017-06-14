@@ -1,0 +1,17 @@
+@* registration Template File *@
+@(transaction: DbTransaction)
+
+<html>
+<body>
+    A new transaction was submitted. 
+    Receiver name: @transaction.firstname @transaction.middlename @transaction.lastname
+    <br/>
+    Transaction ID: @transaction.id
+    <br/>
+    Transaction amount: @transaction.amount
+    <br/>
+    Mnt number: @transaction.mnt_number<br/>
+    <br/>
+    To update it's status use this link: http://bitplus.so/dashboard/verification
+</body>
+</html>

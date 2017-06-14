@@ -1,0 +1,294 @@
+@(registerForm: Form[Option[DbUser]], user: Option[DbUser], isMobile: Boolean )
+@implicitField = @{ FieldConstructor(register_field.f) }
+@import helper._
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>BitPlus - Send mobile money to Somalia</title>
+	<meta name="description" content="BitPlus - Send mobile money to Somalia from anywhere around the world with lightening quick speed.">
+	<meta name="keywords" content="bitcoin, somalia, send money to somalia, bitplus">
+	<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />  
+	<link href="/assets/homepage/css/style.css" rel="stylesheet"/>  
+	<link rel="stylesheet" href="/assets/homepage/css/flexslider.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="/assets/homepage/css/contact.css">
+	<link href='http://fonts.googleapis.com/css?family=Exo+2:400,100,300,500,700' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400italic,400,300,600,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="/assets/homepage/css/icons.css" />
+</head> 
+<body> 
+	
+		<div id="navigation">
+			
+			<div class="nav-container">
+		
+				<h3><a href="#" class="close"><span aria-hidden="true" class="icon_close_alt2 medium" ></span></a></h3>
+				
+				<ul>
+					<li><a href="#">Home</a></li>
+					<li><a href="/login">Login</a></li>
+					<li><a href="#">Signup</a></li>
+					<li><a href="#">Help</a></li>
+					<li><a href="#">FAQ</a></li>
+					<li><a href="#">About</a></li>
+					<li><a href="#">Contact</a></li>
+	
+				</ul>				
+				
+			</div>
+		
+		</div>
+	
+		<div id="header">
+		
+			<div class="row">
+				<div class="span12">
+				
+					<h1><a href="/"><img oncontextmenu="return false" src="/assets/homepage/images/logo.png" alt=""/></a></h1>
+					<h2 class="menulink"><a href="#">Menu</a></h2> 
+					
+				</div>
+				<div class="clearfix"></div>
+			</div>
+				
+		</div>
+		
+	<div id="hero">
+	
+		<!-- Start Content -->
+		
+			<div id="content" class="desktop hero">
+		
+				<div class="container"> 
+						
+					<div class="intro align-centered">
+						<h2>Send Mobile Money to <span>Somalia</span>!</h2>		
+						<h4>Try the hottest new way to send mobile money to Somalia using Bitcoin.</h4>
+                        <h4>
+@user.map { u => 
+                        <a href="/dashboard/send" class="button">Send Money</a></h4>
+}.getOrElse {
+                        <a href="/dashboard/send" class="button">Send Money</a></h4>
+}
+					</div>  
+			            	
+			            	<div class="clearfix"></div>				 				
+					
+					<div class="intro align-centered"><h2>See How It Works:</h2></div>	
+					@if(isMobile) {
+					 <img oncontextmenu="return false" src="/assets/homepage/images/theprocess-m.png" alt="" class="promoimg"/>
+					} else {
+					 <img oncontextmenu="return false" src="/assets/homepage/images/theprocess.png" alt="" class="promoimg"/>
+					}
+				</div>
+			
+			</div>
+		
+		
+		<div class="clearfix"></div>
+		
+	</div>
+	
+		<div class="panel">
+		
+			<div class="container">
+		
+				<div class="row">
+				
+					<div class="span3">
+						<div class="inner align-centered">
+							<div aria-hidden="true" class="icon_heart_alt large"></div>
+							<h3>Simple Process</h3>
+							<p>BitPlus makes sending mobile money to Somalia using Bitcoin  much easier than you thought possible.</p>
+							<div class="clearfix"></div>
+							
+						</div>
+					</div>
+					
+					<div class="span3">
+						<div class="inner align-centered">
+							<div aria-hidden="true" class="arrow_carrot-2right large" ></div>
+							<h3>Fast Transactions</h3>
+							<p>Send mobile money to Somalia from anywhere around the world with lightening quick speed.</p>
+							<div class="clearfix"></div>
+							
+						</div>
+					</div>
+					
+					<div class="span3">
+						<div class="inner align-centered">
+							<div aria-hidden="true" class="icon_currency large" ></div>	
+							<h3>Low Fee</h3>
+							<p>BitPlus charges a small 2.5% fee per transaction. Dahabshiil and other competitors charge 6% or more.</p>
+							<div class="clearfix"></div>
+							
+						</div>
+					</div>
+				
+					<div class="span3">
+						<div class="inner align-centered">
+							<div aria-hidden="true" class="icon_wallet large" ></div>					
+							<h3>No Minimum Limit</h3>
+							<p>There are no minimum limits when sending money. Send as little or as much as you want with BitPlus.</p>
+							<div class="clearfix"></div>
+							
+						</div>
+					</div>
+				
+				</div>
+			
+			</div>
+			
+			<div class="clearfix"></div>
+		
+		</div>		
+	
+	<div class="clearfix"></div>	
+		
+			<div id="content" class="signup hero">
+		
+				<div class="container">
+						 
+					<div class="row"> 
+	        	
+	        				<div class="span2">&nbsp;</div>
+	        	
+				        	<div class="span8"><br />	
+					
+				        		<div class="inner intro align-centered">
+					        		<h2>Signup for <span>Beta</span></h2>
+					        	</div> 
+					        	
+					        </div>
+		        
+					</div>
+					
+					<div class="clearfix"></div>
+							 
+			            	<div class="row"> 
+	        	
+	        				<div class="span3">&nbsp;</div>
+	        	
+					        	<div class="span6">
+					        	
+					        		<div class="inner">
+					        		
+					        			<div class="form-box boxed">
+					        			
+					        				<div class="top">
+				
+						        				<h3>Please complete the form below to register for our beta version</h3>
+						        				
+						        				<span class="spacer"></span>
+						        				
+					        				</div>
+					        			
+					        				<div class="bottom"> 
+												
+												<div id="success">
+												    <div class="green textcenter">
+												        <p>Your message was sent successfully!</p>
+												    </div>
+												</div>
+				
+												<div id="error">
+												    <div>
+												        <p>Something went wrong. Please refresh and try again.</p>
+												    </div>
+												</div>
+																					        	
+												@form(action = routes.Application.register, 'id -> "form-register", 'method -> "POST" ) {
+								                @if(registerForm.hasGlobalErrors) {
+								                <ul>
+								                    @for(err <- registerForm.globalErrors){
+								                        <li>@err.message</li>
+								                    }
+								                </ul>
+								                } 			
+                                                @helper.input(registerForm("name"), 'containerclass1 -> "span3", 'containerclass2 -> "span7") { (id, name, value, args) =>
+                                                    <input type="text" name="@name" id="@name" @toHtmlArgs(args) size="30" class="text login_input" placeholder="Your name">
+                                                }													
+                                                @helper.input(registerForm("email"), 'containerclass1 -> "span3", 'containerclass2 -> "span7") { (id, name, value, args) =>
+                                                    <input type="text" name="@name" id="@name" @toHtmlArgs(args) size="30" class="text login_input" placeholder="Email Address">
+                                                }
+                                                @helper.input(registerForm("password"), 'containerclass1 -> "span3", 'containerclass2 -> "span7") { (id, name, value, args) =>
+                                                    <input type="password" name="@name" id="@name" @toHtmlArgs(args) size="30" class="text login_input" placeholder="Choose a Password">
+                                                }													
+
+													<div class="form-row">	
+														<div class="span3 hidden">
+															&nbsp;
+														</div>
+														<div class="span7">
+															<input id="submit" type="submit" name="submit" value="Sign up now!" class="btn btn-wide btn-extrawide" data-loading-text="Registering...">
+														</div>
+														<div class="clearfix"></div>
+													</div>   
+                                                }												
+											</div> 
+					        			
+					        			</div> 
+					        			<div class="clearfix"></div>
+					        			
+					        			<p class="padded align-centered">By clicking you agree to our Terms of Service, Privacy Policy & Refund Policy.</p>
+					        			
+					        		</div>
+					        		
+					        	</div>
+					        	
+				            	</div>  
+			            	
+			            	<div class="clearfix"></div>
+				
+				</div>
+			
+			</div>
+		
+		<!-- End content -->
+	
+	<div class="clearfix"></div>			
+	
+		<div class="panel" id="footer">
+
+			<div class="container">
+					 
+				<div class="row">
+					
+					<div class="span12">
+					
+						<div class="inner align-centered">
+							
+							<a href="#"><span aria-hidden="true" class="social_facebook medium" ></span></a> 
+							<a href="#"><span aria-hidden="true" class="social_twitter medium" ></span></a> 
+							<a href="#"><span aria-hidden="true" class="social_googleplus medium" ></span></a> 
+							<div class="clearfix"></div>
+
+							<div class="copyright">
+								&copy; 2017 <a href="/">BitPlus</a>.
+							</div>
+							
+							<div class="clearfix"></div>
+							<br /><img src="/assets/homepage/images/btc-evc.png" oncontextmenu="return false" alt="" />
+							<div class="clearfix"></div>
+						
+						</div>  
+					
+					</div>  
+	
+				</div>
+				
+			</div>
+		
+		</div>
+	
+	<script src="/assets/homepage/js/jquery.min.js"></script>
+	<script src="/assets/homepage/js/respond.min.js"></script>
+	<script src="/assets/homepage/js/scripts.js"></script> 
+	<script defer src="/assets/homepage/js/jquery.flexslider-min.js"></script> 
+	<script src="/assets/homepage/js/jquery.form.js"></script>
+	<script src="/assets/homepage/js/jquery.validate.min.js"></script>
+	<script src="/assets/homepage/js/contact.js"></script> 
+	<!--[if lte IE 7]><script src="/assets/homepage/css/lte-ie7.js"></script><![endif]-->
+	
+</body>
+</html>

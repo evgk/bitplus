@@ -1,0 +1,32 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                           controllers.Application.index
+GET     /error                      controllers.Application.error
+GET     /addresserror               controllers.Application.addresserror
+GET     /login                      controllers.Application.login
+GET     /forgot                     controllers.Application.forget
+POST    /forgot                     controllers.Application.forgetPost
+GET     /logout                     controllers.Application.logout
+POST    /authenticate               controllers.Application.authenticate
+GET     /confirm                    controllers.Application.confirm(randomCode: String ?= "")
+GET     /reset                      controllers.Application.reset(randomCode: String ?= "")
+POST    /register                   controllers.Application.register
+GET     /websocket                  controllers.Websockets.socket
+
+GET     /dashboard/account          controllers.Dashboard.account
+POST    /dashboard/account          controllers.Dashboard.accountPost
+GET     /dashboard/transactions     controllers.Dashboard.transactions
+GET     /dashboard/verification     controllers.Dashboard.transactionsAdmin
+GET     /dashboard/send     controllers.Dashboard.send
+POST    /dashboard/send     controllers.Dashboard.sendPost
+GET     /dashboard/done     controllers.Dashboard.done( transactionId: Int )
+GET     /dashboard/invoice  controllers.Dashboard.invoice( transactionId: Int )
+GET     /dashboard/invoicepaid  controllers.Dashboard.invoicePaid( transactionId: Int )
+GET     /dashboard/process  controllers.Dashboard.process( transactionId: Int )
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)
+GET     /*path/  controllers.Application.untrail(path: String)
