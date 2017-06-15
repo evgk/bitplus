@@ -42,6 +42,7 @@ contract BitplusToken {
     event Transfer(address indexed _from, address indexed _to, uint256 _value);
     event Refund(address indexed _from, uint256 _value);
     event EarlyBackerDeposit(address indexed _from, uint256 _value);
+    event Approval(address indexed _owner, address indexed _spender, uint _value);
 
     function BitplusToken(uint256 _fundingStartBlock,
                           uint256 _fundingEndBlock) {
@@ -220,6 +221,7 @@ contract BitplusToken {
     // If this function is called again it overwrites the current allowance with _value.
     function approve(address _spender, uint256 _amount) returns (bool success) {
         allowed[msg.sender][_spender] = _amount;
+        Approval(msg.sender, _spender, _amount);
         return true;
     }    
 }
