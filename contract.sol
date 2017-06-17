@@ -223,7 +223,17 @@ contract BitplusToken {
         allowed[msg.sender][_spender] = _amount;
         Approval(msg.sender, _spender, _amount);
         return true;
-    }    
+    }
+
+    // Just a safeguard for people who might invest and then loose the key
+    // If 2 weeks after the end of the campaign there are unclaimed funds,
+    // transfer those to Bitplus address - the funds will be returned to 
+    // respective owners from it
+    function safeguard() {
+        if(block.number > (fundingEndBlock + 25)) {
+            if (!bitplusAddress.send(this.balance)) throw;
+        }
+    }
 }
 
 
