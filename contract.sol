@@ -10,8 +10,8 @@ contract BitplusToken {
     uint256 public constant tokenCreationRate = 1000;
 
     // The funding cap in weis.
-    uint256 public constant tokenCreationCap = 5 ether * tokenCreationRate;
-    uint256 public constant tokenCreationMin = 1 ether * tokenCreationRate;
+    uint256 public constant tokenCreationCap = 25000 ether * tokenCreationRate;
+    uint256 public constant tokenCreationMin = 2500 ether * tokenCreationRate;
 
     uint256 public fundingStartBlock;
     uint256 public fundingEndBlock;
@@ -47,18 +47,33 @@ contract BitplusToken {
     function BitplusToken(uint256 _fundingStartBlock,
                           uint256 _fundingEndBlock) {
 
-        address _bitplusAddress = 0xeaf0af9a9c5f4aec67ce2a5c30a7598f997752a9;
+        address _bitplusAddress = 0x286e0060d9DBEa0231389485D455A80f14648B3c;
         if (_bitplusAddress == 0) throw;
         if (_fundingStartBlock <= block.number) throw;
         if (_fundingEndBlock   <= _fundingStartBlock) throw;
         
         // special conditions for the early backers
         earlyBackers.push(EarlyBackerCondition({
-            backerAddress: 0x1d412282bf3493f05e531fd966a379b22fc73460,
+            backerAddress: 0xa1cfc9ebdffbffe9b27d741ae04cfc2e78af527a,
             deposited: 0,
-            agreedPercentage: 200,
-            agreedEthPrice: 100 ether
+            agreedPercentage: 1000,
+            agreedEthPrice: 250 ether
         }));
+        
+        // conditions for the company / developers
+        earlyBackers.push(EarlyBackerCondition({
+            backerAddress: 0x37ef1168252f274D4cA5b558213d7294085BCA08,
+            deposited: 0,
+            agreedPercentage: 500,
+            agreedEthPrice: 0.1 ether
+        }));
+        
+        earlyBackers.push(EarlyBackerCondition({
+            backerAddress: 0x246604643ac38e96526b66ba91c1b2ec0c39d8de,
+            deposited: 0,
+            agreedPercentage: 500,
+            agreedEthPrice: 0.1 ether
+        }));        
         
         bitplusAddress = _bitplusAddress;
         fundingStartBlock = _fundingStartBlock;
@@ -224,13 +239,13 @@ contract BitplusToken {
         Approval(msg.sender, _spender, _amount);
         return true;
     }
-
+    
     // Just a safeguard for people who might invest and then loose the key
-    // If 2 weeks after the end of the campaign there are unclaimed funds,
-    // transfer those to Bitplus address - the funds will be returned to 
+    // If 2 weeks after an unsuccessful end of the campaign there are unclaimed
+    // funds, transfer those to Bitplus address - the funds will be returned to 
     // respective owners from it
     function safeguard() {
-        if(block.number > (fundingEndBlock + 25)) {
+        if(block.number > (fundingEndBlock + 71000)) {
             if (!bitplusAddress.send(this.balance)) throw;
         }
     }
