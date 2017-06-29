@@ -15,6 +15,7 @@ GET     /confirm                    controllers.Application.confirm(randomCode: 
 GET     /reset                      controllers.Application.reset(randomCode: String ?= "")
 POST    /register                   controllers.Application.register
 GET     /websocket                  controllers.Websockets.socket
+GET     /instructions               controllers.Application.instructions
 
 GET     /dashboard/account          controllers.Dashboard.account
 POST    /dashboard/account          controllers.Dashboard.accountPost

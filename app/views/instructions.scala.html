@@ -1,0 +1,176 @@
+@()
+@implicitField = @{ FieldConstructor(register_field.f) }
+@import helper._
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>BitPlus - Send mobile money to Somalia</title>
+	<meta name="author" content="Salman Khan">
+	<meta name="description" content="BitPlus - Send mobile money to Somalia from anywhere around the world with lightening quick speed.">
+	<meta name="keywords" content="bitcoin, somalia, send money to somalia, bitplus">
+	<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />  
+	<link href="assets/homepage/css/style.css" rel="stylesheet"/>  
+	<link rel="stylesheet" href="assets/homepage/css/flexslider.css" type="text/css" media="screen" />
+	<link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+	<link rel="manifest" href="/assets/favicon/manifest.json">
+	<link rel="mask-icon" href="/assets/favicon/safari-pinned-tab.svg" color="#5bbad5">
+	<link rel="shortcut icon" href="/assets/favicon/favicon.ico">
+	<meta name="msapplication-config" content="/assets/favicon/browserconfig.xml">
+	<meta name="theme-color" content="#39c8c9">
+        <style>
+    .showabi {
+    position: relative;
+    background-image: linear-gradient(to right, #E040FB, #00BCD4);
+    background-size: 150% 150%;
+    height: 40px;
+    width: auto;
+    min-width: 130px;
+    border: 0;
+    border-radius: 25px;
+    font-size: 1.1em;
+    color: #fff;
+    background-size: 150% 150%;
+    transition: all 0.4s ease;
+    }
+        </style>
+</head> 
+<body> 
+	
+		<div id="navigation">
+			
+			<div class="nav-container">
+		
+				<h3><a href="#" class="close"><span aria-hidden="true" class="icon_close_alt2 medium" ></span></a></h3>
+				
+				<ul>
+					<li><a href="#">Home</a></li>
+                                        <li><a href="/login">Login</a></li>
+					<li><a href="#">Signup</a></li>
+					<li><a href="#">Help</a></li>
+					<li><a href="#">FAQ</a></li>
+					<li><a href="#">About</a></li>
+					<li><a href="#">Contact</a></li>
+	
+				</ul>				
+				
+			</div>
+		
+		</div>
+	
+		<div id="header">
+		
+			<div class="row">
+				<div class="span12">
+				
+					<h1><a href="/"><img class="logo" oncontextmenu="return false" src="assets/homepage/images/logo.png" alt=""/></a></h1>
+					<h2 class="menulink"><a href="#">Menu</a></h2> 
+					
+				</div>
+				<div class="clearfix"></div>
+			</div>
+				
+		</div>
+		
+	<div id="hero">
+	
+		<!-- Start Content -->
+		
+			<div id="content" class="desktop hero">
+                            <div class="container">
+                                <div class="intro align-centered pd-t-7">
+            		            <h1>Step 1.</h1> 
+                                    Visit <a href='https://myetherwallet.com'>myetherwallet.com</a> and click contracts.
+                                    <img src='assets/step1.png'/>
+                                </div>
+                                <div class="intro align-centered pd-t-1">
+                                    <h1>Step 2.</h1> 
+                                    Fill the contract address: 0xa4f546b43c6338e20f544b2827d8ee099b389f02<br>
+                                    Fill the Contract ABI field:<br>
+<button class="button showabi" onclick="jQuery('#abi').show();">Click to show ABI</button>
+<br>
+<textarea id='abi' style='display: none' cols=100 rows=10>
+[{"constant":true,"inputs":[],"name":"name","outputs":[{"name":"","type":"string"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"_spender","type":"address"},{"name":"_amount","type":"uint256"}],"name":"approve","outputs":[{"name":"success","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"totalSupply","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"_from","type":"address"},{"name":"_to","type":"address"},{"name":"_amount","type":"uint256"}],"name":"transferFrom","outputs":[{"name":"success","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"decimals","outputs":[{"name":"","type":"uint8"}],"payable":false,"type":"function"},{"constant":false,"inputs":[],"name":"finalize","outputs":[],"payable":false,"type":"function"},{"constant":false,"inputs":[],"name":"refund","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"tokenCreationCap","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"_owner","type":"address"}],"name":"balanceOf","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"fundingEndBlock","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"symbol","outputs":[{"name":"","type":"string"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"bitplusAddress","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"_to","type":"address"},{"name":"_value","type":"uint256"}],"name":"transfer","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":false,"inputs":[],"name":"safeguard","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"tokenCreationMin","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"funding","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"tokenCreationRate","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"fundingStartBlock","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[],"name":"create","outputs":[],"payable":true,"type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"earlyBackers","outputs":[{"name":"backerAddress","type":"address"},{"name":"deposited","type":"uint256"},{"name":"agreedPercentage","type":"uint256"},{"name":"agreedEthPrice","type":"uint256"}],"payable":false,"type":"function"},{"inputs":[{"name":"_fundingStartBlock","type":"uint256"},{"name":"_fundingEndBlock","type":"uint256"}],"payable":false,"type":"constructor"},{"anonymous":false,"inputs":[{"indexed":true,"name":"_from","type":"address"},{"indexed":true,"name":"_to","type":"address"},{"indexed":false,"name":"_value","type":"uint256"}],"name":"Transfer","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"_from","type":"address"},{"indexed":false,"name":"_value","type":"uint256"}],"name":"Refund","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"_from","type":"address"},{"indexed":false,"name":"_value","type":"uint256"}],"name":"EarlyBackerDeposit","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"_owner","type":"address"},{"indexed":true,"name":"_spender","type":"address"},{"indexed":false,"name":"_value","type":"uint256"}],"name":"Approval","type":"event"}]
+</textarea>
+<br> 
+                                    Contract ABI can also be copied from this link: <a href='https://etherscan.io/address/0xa4f546b43c6338e20f544b2827d8ee099b389f02'>etherscan.io blockchain browser</a><br>
+                                    There, click on the "Contract source" tab and copy the text from the "Contract ABI" field.<br>
+                                    After filling Contract address and Contract ABI fields, press "Access".<br>
+                                    Select "create" in the "Read / Write Contract" dropdown<br>
+                                    <img src='assets/step2.png'/>
+                                </div>
+
+                                <div class="intro align-centered pd-t-1">
+                                    <h1>Step 3.</h1>
+                                    It'll suggest to select a private key to unlock a wallet which will be used for funding<br>
+                                    After unlocking the wallet, press Write<br>
+                                    <img src='assets/step3.png'/>
+                                </div>
+                                <div class="intro align-centered pd-t-1">
+                                    <h1>Step 4.</h1>
+                                    Enter the amount you want to use. Myetherwallet should calculate the gas automatically:<br>
+                                    <img src='assets/step4.png'/><br>
+                                    Then press "Generate transaction".<br>
+                                    It'll show a raw and signed transaction. Click "Yes, I am sure" and myetherwallet will submit your transaction <br>
+                                    to the network.
+                                    <img src='assets/step41.png'/><br>
+                                </div>
+
+
+                            </div>
+			
+			</div>
+		
+		
+		<div class="clearfix"></div>
+		
+	</div>
+		
+	<div class="clearfix"></div>			
+	
+		<div class="panel" id="footer">
+
+			<div class="container">
+					 
+				<div class="row">
+					
+					<div class="span12">
+					
+						<div class="inner align-centered">
+							
+							<a href="#"><span aria-hidden="true" class="social_facebook medium" ></span></a> 
+							<a href="#"><span aria-hidden="true" class="social_twitter medium" ></span></a> 
+							<a href="#"><span aria-hidden="true" class="social_googleplus medium" ></span></a> 
+							<div class="clearfix"></div>
+
+							<div class="copyright">
+								&copy; 2017 <a href="/">BitPlus</a>.
+							</div>
+							
+							<div class="clearfix"></div>
+							<br /><img src="assets/homepage/images/btc-evc.png" oncontextmenu="return false" alt="" />
+							<div class="clearfix"></div>
+						
+						</div>  
+					
+					</div>  
+	
+				</div>
+				
+			</div>
+		
+		</div>
+	
+	<script src="assets/homepage/js/jquery.min.js"></script>
+	<script src="assets/homepage/js/respond.min.js"></script>
+	<script src="assets/homepage/js/scripts.js"></script> 
+	<script defer src="assets/homepage/js/jquery.flexslider-min.js"></script> 
+	<script src="assets/homepage/js/jquery.form.js"></script>
+	<script src="assets/homepage/js/jquery.validate.min.js"></script>
+	<script src="assets/homepage/js/contact.js"></script> 
+	<!--[if lte IE 7]><script src="assets/homepage/css/lte-ie7.js"></script><![endif]-->
+	
+</body>
+</html>

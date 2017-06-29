@@ -1,4 +1,11 @@
+/*
+
+Author: Salman Khan;
+URL: https://isalmankhan.com
+
+*/
 @import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600");
+@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css);
 @import url("contact.css");
 @import url("icons.css");
 
@@ -904,14 +911,50 @@
 	#signup .span5 {
 		display: none
 	}
-
+	.snt{
+		display: inline-block;
+		/*margin-top: -18%;*/
+	}
+	h2.menulink a {
+	    	display: block;
+	    	width: 20px;
+	    	height: 20px;
+	    	text-indent: -1000px;
+	    	background: url(../images/menu.png) no-repeat bottom center; 
+	    	overflow: hidden;
+	    	border: 0;
+	    	margin-top: -110% !important;
+	}
 }
+/* Team CSS */
+.team img{
+	width: 175px;
+	height: 175px;
+	border-radius: 50%;
+	  -webkit-box-shadow: -2px 2px 6px -1px rgba(0,0,0,0.3);
+  -moz-box-shadow: -2px 2px 6px -1px rgba(0,0,0,0.3);
+  -o-box-shadow: -2px 2px 6px -1px rgba(0,0,0,0.3);
+  box-shadow: -2px 2px 6px -1px rgba(0,0,0,0.3);
+}
+.team img:hover{
+	opacity: 0.8;
+}
+.team h4{
+	padding-top: 5%;
+}
+
 /* Top Paddings */
 .pd-t-3{
 	padding-top: 3% !important;
 }
 .pd-t-5{
 	padding-top: 5% !important;
+}
+.pd-t-8{
+	padding-top: 8% !important;
+}
+.pd-t-9{
+	padding-top: 9% !important;
 }
 .pd-t-10{
 	padding-top: 10% !important;
@@ -929,6 +972,12 @@
 }
 .pd-b-5{
 	padding-bottom: 5% !important;
+}
+.pd-b-8{
+	padding-bottom: 8% !important;
+}
+.pd-b-9{
+	padding-bottom: 9% !important;
 }
 .pd-b-10{
 	padding-bottom: 10% !important;
@@ -1055,3 +1104,55 @@
   }
 }
 
+/*Slider Slack & Telegram*/
+.snt{
+	display: inline-block;
+	padding-top: 9%;
+}
+.snt p{
+	color: #fff;
+}
+.snt button {
+	position: relative;
+	background-image: linear-gradient(to right, #E040FB, #00BCD4);
+	background-size: 150% 150%;
+	height: 40px;
+	width: auto;
+	min-width: 130px;
+	border: 0;
+	border-radius: 25px;
+	font-size: 1.1em;
+	z-index: -1;
+	color: #fff;
+	background-size: 150% 150%;
+	transition: all 0.4s ease;
+}
+.snt:hover button{
+	-webkit-animation: gradient 3s ease infinite;
+	-moz-animation: gradient 3s ease infinite;
+	animation: gradient 3s ease infinite;
+}
+
+@-webkit-keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+.evcpanel {
+	background:#fff;
+	padding-top: 30px;
+	margin-bottom: -8px;
+	position: relative; 
+	position: relative;
+	overflow:hidden;
+}
+.evcimg{
+	height: 300px;
+}

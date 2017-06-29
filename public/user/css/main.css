@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Roboto);
+@import url(https://fonts.googleapis.com/css?family=Roboto);
 /*  CSS  */
 .clearfix {
   *zoom: 1; }
@@ -169,7 +169,7 @@ body {
   font: normal 13px roboto, sans-serif;
   line-height: 18px;
   color: #4d4d4d;
-  background:#4e596b url(/assets/homepage/images/background.jpg) center center fixed;	
+  background:#4e596b url(/assets/homepage/images/bg.jpg) center center fixed;	
   background-size: 100% 100%; }
 
 a {

@@ -107,6 +107,10 @@ object Application extends Controller with OptionalAuthElement with LoginLogout 
     DbUser.confirmUser( code )
     Future.successful(Redirect(routes.Application.login))
   }
+
+  def instructions() = StackAction { implicit request =>
+    Ok(views.html.instructions())
+  }
   
   def reset(code: String) = Action.async { implicit request =>
     Future.successful(Ok(views.html.user.reset()))

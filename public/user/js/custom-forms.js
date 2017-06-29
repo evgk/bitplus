@@ -19,9 +19,9 @@ $('.myTabBeauty a').click(function (e) {
 $('.dropdown-toggle').dropdown();
 
 //wysihtml5
-$('#wysiwyg').wysihtml5();
+//$('#wysiwyg').wysihtml5();
 
-
+/*
 $('#timepicker1').timepicker({
   minuteStep: 1,
   secondStep: 5,
@@ -39,13 +39,14 @@ $('#timepicker2').timepicker({
   showSeconds: true,
   showMeridian: false
 });
+*/
 
 //Date picker
+/*
 $('.date_picker').daterangepicker({
   opens: 'left'
 });
 
-//Date Picker
 $('.report_range').daterangepicker({
   ranges: {
     'Today': ['today', 'today'],
@@ -88,12 +89,13 @@ $('.report_range').daterangepicker({
 function (start, end) {
   $('.report_range span').html(start.toString('MMMM d, yyyy') + ' - ' + end.toString('MMMM d, yyyy'));
 });
-
+*/
 //Set the initial state of the picker label
+/*
 $('.report_range span').html(Date.today().add({
   days: -29
 }).toString('MMMM d, yyyy') + ' - ' + Date.today().toString('MMMM d, yyyy'));
-
+*/
 
 
 //Xeditable form fields

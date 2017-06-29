@@ -1,6 +1,7 @@
-@(registerForm: Form[Option[DbUser]], user: Option[DbUser], isMobile: Boolean )
-@implicitField = @{ FieldConstructor(register_field.f) }
-@import helper._
+<?php
+require_once 'Mobile_Detect.php';
+$detect = new Mobile_Detect;
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -74,6 +75,7 @@
 		
 	</div>
 
+	<?php /* Start - How it Works */ ?>
 	<div class="panel panel-minimal">
 	
 		<div class="container">
@@ -82,11 +84,18 @@
 			
 				<div class="align-centered">
 					<h1>See how it works</h1>
-                                        @if(isMobile) {
-                                         <img oncontextmenu="return false" src="/assets/homepage/images/theprocess-m.png" alt="" class="promoimg"/>
-                                        } else {
-                                         <img oncontextmenu="return false" src="/assets/homepage/images/theprocess.png" alt="" class="promoimg"/>
-                                        }
+					<?php
+					//visual representation to what CFMaBiSmAd said
+					if( $detect->isMobile() ) {
+					?>
+					<img oncontextmenu="return false" src="assets/homepage/images/theprocess-m.png" alt="" class="promoimg"/>
+					<?php
+					} else {
+					?>
+					<img oncontextmenu="return false" src="assets/homepage/images/theprocess.png" alt="" class="promoimg"/>
+					<?php
+					}
+					?>
 				</div>
 
 			</div>
@@ -95,6 +104,9 @@
 		
 		<div class="clearfix"></div>
 	</div>
+	<?php /* END - How it Works */ ?>
+
+	<?php /* Start - Features */ ?>
 	<div class="panel bg-alt">
 
 		<div class="container">
@@ -147,7 +159,9 @@
 		
 		<div class="clearfix"></div>
 	</div>
+	<?php /* END - Features */ ?>
 
+	<?php /* Start - Countdown */ ?>
 	<div class="panel panel-minimal bg-countdown">
 	
 		<div class="container">
@@ -190,16 +204,19 @@
 		
 		<div class="clearfix"></div>
 	</div>
+	<?php /* END - Countdown */ ?>
 
 	<div class="clearfix"></div>	
-	<div class="panel">
+
+	<?php /* Start - Terms */ ?>
+	<div class="panel bg-alt">
 
 		<div class="container">
 				<div class="row">
 
 					<div class="span6">
 						<div class="align-centered pd-b-3">
-							<h2>BPNT Features</h2>
+							<h2>Features</h2>
 						</div>
 						<ul>
 							<li>Ability to control backend clearing processes</li>
@@ -210,7 +227,7 @@
 
 					<div class="span6">
 						<div class="align-centered pd-b-3">
-							<h2>BPNT Conditions</h2>
+							<h2>Conditions</h2>
 						</div>
 						<ul>
 							<li>Minimum ether: 5000</li>
@@ -229,52 +246,10 @@
 		
 		<div class="clearfix"></div>
 	</div>
-	<div class="panel bg-alt">
+	<?php /* END - Token Terms */ ?>
 
-		<div class="container">
-				<div class="row">
-					<div class="align-centered pd-b-3">
-						<h1>The Team</h1>
-					</div>
+	<?php /* Start - Signup */ ?>
 
-					<div class="span3">
-						<div class="align-centered pd-b-3 team">
-							<img src="assets/homepage/images/team/ami.jpg">
-							<h4>Abdulkadir Mohamed Ibrahim</h4>
-							<p>Founder</p>
-						</div>
-					</div>
-
-					<div class="span3">
-						<div class="align-centered pd-b-3 team">
-							<img src="assets/homepage/images/team/abdi.jpg">
-							<h4>Abdi Dheere</h4>
-							<p>Director of Operations</p>
-						</div>
-					</div>
-
-					<div class="span3">
-						<div class="align-centered pd-b-3 team">
-							<img src="assets/homepage/images/team/ek.jpg">
-							<h4>Eugene Kamyshev</h4>
-							<p>Chief Technical Officer</p>
-						</div>
-					</div>
-
-					<div class="span3">
-						<div class="align-centered pd-b-3 team">
-							<img src="assets/homepage/images/team/ah.jpg">
-							<h4>Ayman Hassib</h4>
-							<p>Lead Developer</p>
-						</div>
-					</div>
-					
-				</div>
-		
-		</div>
-		
-		<div class="clearfix"></div>
-	</div>
 	<div id="content" class="signup hero">
 
 		<div class="container pd-t-3 pd-b-3">
@@ -327,24 +302,50 @@
 										    </div>
 										</div>
 																			        				
-@form(action = routes.Application.register, 'id -> "form-register", 'method -> "POST" ) {
-                @if(registerForm.hasGlobalErrors) {
-                    <ul>
-                        @for(err <- registerForm.globalErrors){
-                            <li>@err.message</li>
-                        }
-                    </ul>
-                }
-                @helper.input(registerForm("name"), 'containerclass1 -> "span3", 'containerclass2 -> "span7") { (id, name, value, args) =>
-                    <input type="text" name="@name" id="@name" @toHtmlArgs(args) size="30" class="text login_input" placeholder="Your name">
-                }
-                @helper.input(registerForm("email"), 'containerclass1 -> "span3", 'containerclass2 -> "span7") { (id, name, value, args) =>
-                    <input type="text" name="@name" id="@name" @toHtmlArgs(args) size="30" class="text login_input" placeholder="Email Address">
-                }
-                @helper.input(registerForm("password"), 'containerclass1 -> "span3", 'containerclass2 -> "span7") { (id, name, value, args) =>
-                    <input type="password" name="@name" id="@name" @toHtmlArgs(args) size="30" class="text login_input" placeholder="Choose a Password">
-                }
+										<form id="signup" name="signup" method="post" novalidate="novalidate">
 											
+											<div class="form-row">	
+												<div class="span3">
+													<div class="inner align-right">
+														
+													</div>
+												</div>
+												<div class="span7">
+													<div class="input-wrapper">
+														<input type="text" name="name" id="name" size="30" value="" required="" class="text login_input"  placeholder="Your name">
+													</div>
+												</div>
+												<div class="clearfix"></div>
+											</div>  
+											
+											<div class="form-row">	
+												<div class="span3">
+													<div class="inner align-right">
+														
+													</div>
+												</div>
+												<div class="span7">
+													<div class="input-wrapper">
+														<input type="text" name="email" id="email" size="30" value="" required="" class="text login_input"  placeholder="Email Address">
+													</div>
+												</div>
+												<div class="clearfix"></div>
+											</div>
+											
+											<div class="form-row">	
+												<div class="span3">
+													<div class="inner align-right">
+														
+													</div>
+												</div>
+												<div class="span7">
+													<div class="input-wrapper">
+														<input type="password" name="password" id="password" size="30" value="" required="" class="text login_input"  placeholder="Choose a Password">
+													</div>
+												</div>
+												<div class="clearfix"></div>
+											</div> 
+															
 											<div class="form-row">	
 												<div class="span3 hidden">
 													&nbsp;
@@ -354,8 +355,9 @@
 												</div>
 												<div class="clearfix"></div>
 											</div>   
-}
 											
+										</form>
+										
 									</div> 
 			        			
 			        			</div> 
@@ -376,6 +378,8 @@
 	</div>
 		
 		
+	<?php /* End - Signup */ ?>
+	
 	<div class="clearfix"></div>			
 	
 		<div class="panel" id="footer">
@@ -394,7 +398,7 @@
 							<div class="clearfix"></div>
 
 							<div class="copyright">
-								&copy; 2017 <a href="/">BitPlus</a>.
+								&copy; 2015 <a href="/">BitPlus</a>.
 							</div>
 							
 							<div class="clearfix"></div>
